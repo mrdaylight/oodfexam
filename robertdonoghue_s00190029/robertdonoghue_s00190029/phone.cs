@@ -10,12 +10,15 @@ namespace robertdonoghue_s00190029
 {
     public class Phone
     {
+        // q2
         public string Name { get; set; }
         public double Price { get; set; }
         public string Operating_System { get; set; }
         public string OS_Image { get; set; }
         public string Phone_Image { get; set; }
+        public virtual int ID { get; set; }
 
+        // q3
         public void IncreasePrice(double percentIn)
         {
             this.Price = this.Price + (this.Price * (percentIn / 100));
@@ -34,6 +37,11 @@ namespace robertdonoghue_s00190029
             this.Phone_Image = pImageIn;
         }
 
+        public override string ToString()
+        {
+            return this.Price.ToString();
+        }
+
         public Phone()
         {
 
@@ -42,6 +50,7 @@ namespace robertdonoghue_s00190029
     public class PhoneDetails : DbContext
     {
         public PhoneDetails() : base("PhoneDetails") { }
+
         public DbSet<Phone> Phone { get; set; }
     }
 
